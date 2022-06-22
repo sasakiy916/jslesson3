@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table id="table" border="1">
+
+   </table> 
+   <script>
+    window.onload=()=>{
+        const table = document.getElementById("table");
+        for(let i=1;i<=9;i++){
+            let tr = document.createElement("tr");
+            for(let j=1;j<=9;j++){
+                let td = document.createElement("td");
+                let text = `${i}×${j}=`;
+                td.textContent = text;
+                td.x=i;
+                td.y=j;
+                td.ans=i*j;
+                td.addEventListener("mouseenter",()=>{
+                    td.style.textDecoration = "underline";
+                });
+                td.addEventListener("mouseout",()=>{
+                    td.style.textDecoration = "none";
+                });
+                td.addEventListener("click",()=>{
+                    if(td. == document.getElementsByTagName("td")){
+                        console.log("True");
+                    }
+                    const userAns = window.prompt(text);
+                    if(td.ans == parseInt(userAns)){
+                        td.style.background = "lightgreen";
+                        td.textContent = text + `${td.ans}`;
+                    }else{
+                        td.style.background = "pink";
+                    }
+                });
+                tr.append(td);
+            }
+            table.append(tr);
+        }
+    };
+   </script>
+</body>
+</html>
